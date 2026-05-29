@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Population Quick Read</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    
+    <!-- Bootstrap CSS/JS (v5.3.3) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <link rel="icon" href="img/icon/favicon.ico" type="image/vnd.microsoft.icon" />
+    <link rel="icon" type="image/png" href="img/icon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="img/icon/favicon.svg" />
+    <link rel="shortcut icon" href="img/icon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="img/icon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Output Title Here" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="nisra-styles.css">
+
+    <!-- Chart js -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+  </head>
+
+  <body>
+
+    <div id="cookie-banner"></div>
+
+      <!-- Top Navbar -->
+    <nav class="navbar p-0" style="background-color:#00205b;">
+
+      <!-- Banner row (full width) -->
+      <div class="w-100" style="background-color:#3878c5;">
+        <div class="text-white text-center py-2 px-3">
+          <strong>We welcome feedback from users through our <a class="survey-link" href="https://dttselfserve.nidirect.gov.uk/NISRA/RateIt#/Population_Quick_Read" target="_blank">short survey</a></use></strong>
+        </div>
+      </div>
+
+      <div class="container-fluid d-flex flex-column align-items-stretch p-0">
+
+        <!-- Main navbar row -->
+        <div class="d-flex align-items-center w-100 py-3 px-2">
+          <!-- Logo (left) -->
+          <a class="navbar-brand ps-2 d-flex align-items-center me-auto" href="/">
+            <img src="img/logo/nisra-only-white.svg" alt="NISRA homepage" height="60" class="me-3">
+          </a>
+
+          <!-- Heading (right) -->
+           <div class="col">
+          <h1 class="mb-0 pe-2 text-white app-title ms-2 text-center text-lg-end"> Population Quick Read</h1>
+          </div>
+        </div>
+      </div>
+
+    </nav>
+
+    <main class="min-vh-100 py-4">
+
+    <div class="container">
+      <div class="bg-white p-4 rounded">
+
+    
+    <h2>How many people live in Northern Ireland?</h2>
+    <p>In <span class="summary_latest_year"></span> around <span class="summary_latest_pop_round_million" style="font-weight: bold;"></span> <span style="font-weight: bold;">million</span> people lived here:<br>
+      <span class="summary_latest_pop_total format-number bignumber"></span></p>
+    
+      <img src="img/people-cool.jpeg" alt="" class="img-pop">
+    <h2>What does our population look like?</h2>
+    <p id="popchartDesc" class="visually-hidden" aria-hidden="true">Bar chart showing the population in four age groups.
+      16 and under is the smallest group. The next group is 16 to 39 which is larger. The next is age 40 to 64 which is the largest group.
+      Last is age 65 and over which is smaller than the under 16 group.</p>
+    <div class="chart-container" style="height:400px;"> 
+    <canvas id="popAgeChart" aria-describedby="popchartDesc" role="img"></canvas>
+    </div>  
+
+
+    <p style="margin-top: 2em;">In <span class="summary_latest_year"></span>, approximately:
+    <ul>
+      <li><span class="summary_pct_under_16"></span>% were children aged 15 or under</li>
+      <li><span class="summary_pct_16_64"></span>% were adults aged 16 to 64</li>
+      <li><span class="summary_pct_65_plus"></span>% were 65 and over</li>
+    </ul>
+    </p>
+    <p>Just over half (<span class="summary_pct_female"></span>%) of the population was female.</p>
+
+    <h2>How has our population changed?</h2>
+    <p>Our population has been steadily growing.</p>
+    <p>In <span class="summary_earliest_year"></span> it was about <span class="summary_earliest_pop_round_million"></span> million (<span class="summary_earliest_pop_total format-number"></span>).</p>
+    <p>That is an increase of just over <span class="summary_pop_change_round format-number"></span> people. That is equal to around two thirds of all the people who live in Belfast. It is also one and a half times as many people who live in Derry~Londonderry.</p>
+
+
+    <h2>What causes population change?</h2>
+    <!-- <img src="img/pop-change.svg" alt=""> -->
+    <p>Three main factors drive population change: 
+      <ul>
+        <li>births</li>
+        <li>deaths</li>
+        <li>migration (people moving in and out of Northern Ireland)</li>
+      </ul></p>
+      <p>Our population growth is due to more births than deaths, and more people coming to live here than leaving.</p>
+
+      <h2>What does the future look like?</h2>
+      <p>Our population is ageing.</p>
+      <!-- <img src="img/median-age.svg" alt=""> -->
+      <p>To measure this and track how it changes over time, we use the average (median) age. If we lined up all our citizens from youngest to oldest, the one in the middle would be the median.</p>
+      <ul>
+        <li>In 1994 the median age was <span class="summary_median_1994"></span>.</li>
+        <li>In <span class="summary_latest_year"></span> it was <span class="summary_median_latest"></span>.</li>
+      </ul>
+      <p>Our population is predicted to peak around <span class="summary_years_to_peak"></span> years from now.</p>
+      <p id="projChartDesc" class="visually-hidden" aria-hidden="true">Line chart showing population figures and projections for Northern Ireland from 1971 to 2070.
+         The chart shows a steady increase in population up to now, and growth projected to continue and then slowly decrease.</p>
+      <div class="chart-container" style="height:400px;">
+      <canvas id="projections_chart" aria-describedby="projChartDesc"></canvas>
+      
+      </div>
+      
+
+      <p style="margin-top: 2em;">Our population growth is predicted to slow down, peak at <span class="summary_pop_peak_mill"></span> million in <span class="summary_pop_peak_year"></span> and then fall to 1.91 million by 2049.
+         That is based on trends in:
+         <ul>
+           <li>how long we live</li>
+           <li>how many babies are born</li>
+           <li>numbers of people coming to live here and leaving to live elsewhere</li>
+         </ul>
+      </p>
+
+
+      <h2>Why are these statistics important?</h2>
+      <p>Government departments use population statistics to plan public services such as education, health and transport. They help us plan how many schools, hospitals and care homes etc. we need.</p>
+      <p>They are also useful to academics and researchers. They help us calculate how often events (such as crimes or illnesses) occur per a certain number of people so we can make comparisons.</p>
+    
+      <h2>Where do these statistics come from?</h2>
+      <p>The main population counts come from the census, which takes place every 10 years. The most recent was <a href="https://www.nisra.gov.uk/statistics/census/census-2021">Census 2021</a>.</p>
+      <p>Each year, NISRA then estimates how many people live in Northern Ireland on 30 June. This is called a <a href="https://www.nisra.gov.uk/statistics/population/mid-year-population-estimates"> 'mid-year estimate'</a>.
+      We start with last year's number, add babies born, subtract deaths, and count people who moved in or out.</p>
+
+      <h2>Where can I find more census statistics?</h2>
+      <p><a href="https://explore.nisra.gov.uk/area-explorer-2021/">Census Area Explorer</a> is an interactive, visual tool for exploring a wide range of census data. It allows you to select which geographical areas you wish to explore, and you can compare results with previous 2011 Census.</p>
+      <p>The  <a href="https://build.nisra.gov.uk/en/">Census Flexible Table Builder</a> allows you to do your own analysis of census data.</p>
+      <p>There are lots of other <a href="https://www.nisra.gov.uk/statistics/census/find-census-data-you-need">census resources</a> you can explore on the website.</p>
+      
+    </div>
+    </div>
+    </main>
+
+    <footer class="footer mt-auto py-4 bg-nisra text-white">
+
+      <div class="container">
+        <!-- 3 column section -->
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <h4 class="footer-header">Data Tools</h4>
+            <ul class="list-unstyled">
+              <li><a href="https://explore.nisra.gov.uk/local-stats/">Local Statistics Explorer</a></li>
+              <li><a href="https://data.nisra.gov.uk">Data Portal</a></li>
+              <li><a href="https://build.nisra.gov.uk/en/">Census Flexible Table Builder</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <h4 class="footer-header">Corporate</h4>
+            <ul class="list-unstyled">
+              <li><a href="https://www.nisra.gov.uk/">NISRA Website</a></li>
+              <li><a href="https://www.nisra.gov.uk/about-us/careers">Careers</a></li>
+              <li><a href="https://www.nisra.gov.uk/contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <h4 class="footer-header">Follow</h4>
+            <ul class="list-inline">
+              <li class="list-inline-item">
+                <a href="https://www.facebook.com/nisra.gov.uk">
+                  <img src="img/logo/facebook-brands-solid-full.svg" alt="NISRA Facebook" role="img" class="img-50"/>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://x.com/NISRA/">
+                  <img src="img/logo/x-twitter-brands-solid-full.svg" alt="NISRA Twitter" role="img" class="img-50"/>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.youtube.com/user/nisrastats">
+                  <img src="img/logo/youtube-brands-solid-full.svg" alt="NISRA YouTube" role="img" class="img-50"/>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.linkedin.com/company/northern-ireland-statistics-and-research-agency/">
+                  <img src="img/logo/linkedin-in-brands-solid-full.svg" alt="NISRA LinkedIn" role="img" class="img-50"/>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.instagram.com/nisra.gov.uk/">
+                  <img src="img/logo/instagram-brands-solid-full.svg" alt="NISRA Instagram" role="img" class="img-50"/>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Horizontal list with separators -->
+        <ul class="list-inline footer-links text-center mb-0">
+          <li class="list-inline-item"><a href="https://www.nisra.gov.uk/crown-copyright">© Crown Copyright</a></li>
+          <li class="list-inline-item">|</li>
+          <li class="list-inline-item"><a href="https://www.nisra.gov.uk/terms-and-conditions">Terms and conditions</a></li>
+          <li class="list-inline-item">|</li>
+          <li class="list-inline-item"><a href="https://www.nisra.gov.uk/cookies">Cookies</a></li>
+          <li class="list-inline-item">|</li>
+          <li class="list-inline-item"><a href="https://www.nisra.gov.uk/nisra-privacy-notice">Privacy</a></li>
+          <li class="list-inline-item">|</li>
+          <li class="list-inline-item"><a href="https://datavis.nisra.gov.uk/dissemination/accessibility-statement-visualisations.html">Accessibility Statement</a></li>
+        </ul>
+      </div>
+      
+    </footer>
+
+<script>
+  // Load the data from the JSON file and populate the page
+  fetch('public/data/data.json')
+    .then(response => response.json())
+    .then(data => {
+      console.log('Loaded data:', data);
+
+      populateSummary(data.summary);
+      renderCharts(data.charts, data.summary);
+    })
+    .catch(error => console.error('Error loading data:', error));
+
+    // functiion to add summary_ prefix to relevants elements data.json and populate html with these values
+    // format-number class adds thousand separators
+  function populateSummary(summary) {
+    Object.keys(summary).forEach(key => {
+      document.querySelectorAll('.summary_' + key).forEach(el => {
+        const value = summary[key];
+
+        if (el.classList.contains('format-number') && typeof value === 'number') {
+          el.textContent = value.toLocaleString();
+        } else {
+          el.textContent = value;
+        }
+      });
+    });
+  }
+
+const peakYearLinePlugin = {
+  id: 'peakYearLine',
+  afterDatasetsDraw(chart, args, pluginOptions) {
+    if (!pluginOptions?.year) return;
+
+    const { ctx, chartArea, scales } = chart;
+    const xScale = scales.x;
+
+    const yearIndex = chart.data.labels.findIndex(
+      label => Number(label) === Number(pluginOptions.year)
+    );
+
+    if (yearIndex === -1) return;
+
+    const x = xScale.getPixelForValue(yearIndex);
+
+   const labelY = chartArea.top + 24;
+
+ctx.save();
+
+const offsetX = 6;
+
+ctx.setLineDash([]);
+ctx.fillStyle = pluginOptions.color || '#666';
+ctx.font = '14px Roboto';
+ctx.textAlign = 'left';
+ctx.fillText(pluginOptions.label || pluginOptions.year, x + offsetX, labelY);
+
+ctx.beginPath();
+ctx.moveTo(x, chartArea.top);
+ctx.lineTo(x, chartArea.bottom);
+ctx.lineWidth = 2;
+ctx.strokeStyle = pluginOptions.color || '#666';
+ctx.setLineDash([6, 6]);
+ctx.stroke();
+
+ctx.restore();
+  }
+};
+
+Chart.register(peakYearLinePlugin);
+
+
+  // function to render charts, using objects in data.json. Both charts are defined in data.json and rendered in the canvas with id popAgeChart. 
+  // This allows us to easily add more charts in the future by just adding to data.json and the relevant canvas element in the HTML. 
+  function renderCharts(charts, summary) {
+    Object.keys(charts).forEach(chartId => {
+      const chartDef = charts[chartId];
+      const canvas = document.getElementById(chartId);
+
+      if (!canvas) {
+        console.warn(`Canvas with id "${chartId}" not found`);
+        return;
+      }
+
+      const isLine = chartDef.type === 'line';
+
+      new Chart(canvas.getContext('2d'), {
+        type: chartDef.type,
+        data: {
+          labels: chartDef.labels,
+          datasets: chartDef.datasets
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: {
+              beginAtZero: true,
+              grid: {
+                display: true
+              },
+              ticks: {
+                maxTicksLimit: 5
+              }
+            },
+            x: {
+              grid: {
+                display: false
+              },
+              ticks: {
+                maxTicksLimit: 10,
+                maxRotation: 0,
+                minRotation: 0
+            }
+          }
+          },
+          plugins: {
+            legend: {
+              display: isLine,
+              position: 'top',
+              labels: {
+                padding: 20
+              }
+            },
+            tooltip: {
+              enabled: isLine
+            },
+            title: {
+              display: !!chartDef.title,
+              text: chartDef.title,
+              font: {
+                family: 'Roboto',
+                size: 18,
+                weight: 'normal'
+              },
+              padding: {
+                top: 10,
+                bottom: 30
+              }
+            },
+            peakYearLine: {
+              year: summary.pop_peak_year,
+              color: '#666',
+              label: `Peak: ${summary.pop_peak_year}`
+            }
+          }
+        }
+      });
+    });
+  }
+
+function initCookieConsent(options = {}) {
+  const {
+    bannerId = 'cookie-banner',
+    gtmId = 'GTM-WKK8ZWP',
+    cookieDomain = '.nisra.gov.uk',
+    cookieDays = 365
+  } = options;
+
+  const cookieBanner = document.getElementById(bannerId);
+  if (!cookieBanner) return;
+
+  const COOKIE_NAME = 'cookie-agreed';
+  const ACCEPTED = '2';
+  const REJECTED = '0';
+
+  function getCookie(name) {
+    const parts = document.cookie ? document.cookie.split('; ') : [];
+    for (let i = 0; i < parts.length; i++) {
+      if (parts[i].startsWith(name + '=')) {
+        return decodeURIComponent(parts[i].substring(name.length + 1));
+      }
+    }
+    return null;
+  }
+
+  function setCookie(name, value, days) {
+    const expires = new Date(
+      Date.now() + days * 24 * 60 * 60 * 1000
+    ).toUTCString();
+
+    document.cookie =
+      `${encodeURIComponent(name)}=${encodeURIComponent(value)}` +
+      `; Expires=${expires}` +
+      `; Path=/` +
+      `; Domain=${cookieDomain}` +
+      `; Secure` +
+      `; SameSite=Lax`;
+  }
+
+  function hideBanner() {
+    cookieBanner.style.display = 'none';
+    cookieBanner.setAttribute('aria-hidden', 'true');
+  }
+
+  function showBanner() {
+    cookieBanner.style.display = 'block';
+    cookieBanner.removeAttribute('aria-hidden');
+  }
+
+  function loadGoogleTagManager() {
+    if (window.__nisraGtmLoaded) return;
+    window.__nisraGtmLoaded = true;
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'gtm.start': new Date().getTime(),
+      event: 'gtm.js'
+    });
+
+    const firstScript = document.getElementsByTagName('script')[0];
+    const gtmScript = document.createElement('script');
+    gtmScript.async = true;
+    gtmScript.src = `https://www.googletagmanager.com/gtm.js?id=${gtmId}`;
+    firstScript.parentNode.insertBefore(gtmScript, firstScript);
+
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.googletagmanager.com/ns.html?id=${gtmId}`;
+    iframe.height = '0';
+    iframe.width = '0';
+    iframe.style.display = 'none';
+    iframe.style.visibility = 'hidden';
+    document.body.appendChild(iframe);
+  }
+
+  // Build banner HTML (no GTM yet)
+  cookieBanner.classList.add('cookies-infobar');
+  cookieBanner.innerHTML = `
+    <div class="container">
+      <p><strong>Cookies on the NISRA Data Explorer</strong></p>
+      <p>
+        This web page places small amounts of information known as cookies on your device.
+        <a href="https://www.nisra.gov.uk/cookies"
+           class="cookiesbarlink"
+           target="_blank"
+           rel="noopener noreferrer">
+          Find out more about cookies
+        </a>.
+      </p>
+      <button id="accept-cookies" class="cookies-infobar_btn">Accept cookies</button>
+      <button id="reject-cookies" class="cookies-infobar_btn_reject">Reject cookies</button>
+    </div>
+  `;
+
+  const acceptBtn = document.getElementById('accept-cookies');
+  const rejectBtn = document.getElementById('reject-cookies');
+
+  const existing = getCookie(COOKIE_NAME);
+
+  // Already accepted on nisra.gov.uk
+  if (existing === ACCEPTED) {
+    hideBanner();
+    loadGoogleTagManager();
+    return;
+  }
+
+  // Explicitly rejected
+  if (existing === REJECTED) {
+    hideBanner();
+    return;
+  }
+
+  // No decision yet
+  showBanner();
+
+  acceptBtn?.addEventListener('click', () => {
+    setCookie(COOKIE_NAME, ACCEPTED, cookieDays);
+    hideBanner();
+    loadGoogleTagManager();
+  });
+
+  rejectBtn?.addEventListener('click', () => {
+    setCookie(COOKIE_NAME, REJECTED, cookieDays);
+    hideBanner();
+  });
+}
+
+initCookieConsent();
+ 
+</script>
+
+
+  </body>
+</html>
+
